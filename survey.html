@@ -11,7 +11,7 @@
     <title>HUM172</title>
 
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+
 
 </head>
 
@@ -48,7 +48,7 @@
             <div class=box>
 
                 <div class="questions">
-                    <p class="fs-3" class="fs-3">What is you current education level?</p>
+                    <p class="fs-4" class="fs-4">What is you current education level?</p>
                 </div>
 
                 <div class="charts">
@@ -58,7 +58,7 @@
 
                         function drawChart() {
 
-                            var data = google.visualization.arrayToDataTable([
+                            var data = new google.visualization.arrayToDataTable([
                                 ['Options', 'Responses'],
                                 ['Primary and below', 1],
                                 ['Classes 6-8', 4],
@@ -70,6 +70,10 @@
 
                             var options = {
                                 pieStartAngle: 90,
+
+                                legend: { position: 'top', maxLines: '5' },
+                                chartArea: { width: '100%' },
+
 
                             };
 
@@ -90,7 +94,7 @@
             <div class=box>
 
                 <div class="questions">
-                    <p class="fs-3">What is the type of your institution's campus?</p>
+                    <p class="fs-4">What is the type of your institution's campus?</p>
                 </div>
 
                 <div class="charts">
@@ -110,6 +114,8 @@
 
                             var options = {
                                 pieStartAngle: 90,
+                                legend: { position: 'top', maxLines: '5' },
+                                chartArea: { width: '100%' },
 
                             };
 
@@ -131,7 +137,7 @@
             <div class=box>
 
                 <div class="questions">
-                    <p class="fs-3">What type of area are you currently living in?</p>
+                    <p class="fs-4">What type of area are you currently living in?</p>
                 </div>
 
                 <div class="charts">
@@ -153,6 +159,8 @@
 
                             var options = {
                                 pieStartAngle: 90,
+                                legend: { position: 'top', maxLines: '5' },
+                                chartArea: { width: '100%' },
 
                             };
 
@@ -174,7 +182,7 @@
             <div class=box>
 
                 <div class="questions">
-                    <p class="fs-3">Are you satisfied with the structure of online courses conducted by your institution
+                    <p class="fs-4">Are you satisfied with the structure of online courses conducted by your institution
                         (virtual classes
                         at the tertiary and secondary level, broadcast through national TV at the primary level)?</p>
                 </div>
@@ -195,6 +203,8 @@
 
                             var options = {
                                 pieStartAngle: 90,
+                                legend: { position: 'top', maxLines: '5' },
+                                chartArea: { width: '100%' },
 
                             };
 
@@ -215,7 +225,7 @@
             <div class=box>
 
                 <div class="questions">
-                    <p class="fs-3">Did you have to make any adjustment to your current amenities? Please select as many
+                    <p class="fs-4">Did you have to make any adjustment to your current amenities? Please select as many
                         apply.</p>
                 </div>
 
@@ -226,22 +236,33 @@
 
                         function drawChart() {
                             var data = google.visualization.arrayToDataTable([
-                                ['', ''],
-                                ['Purchasing new electronic device', 93],
-                                ['Extra expenditure for internet', 113],
-                                ['Change in living location', 17],
-                                ['None', 44]
+                                [' ', ' ', { role: 'annotationText' }],
+                                [' ', 93, 'Purchasing new electronic device'],
+                                [' ', 113, 'Extra expenditure for internet'],
+                                [' ', 17, 'Change in living location'],
+                                [' ', 44, 'None']
                             ]);
+
+                            var view = new google.visualization.DataView(data);
+                            view.setColumns([0, 1,
+                                {
+                                    calc: "stringify",
+                                    sourceColumn: 2,
+                                    type: "string",
+                                    role: "annotation"
+                                },
+                                2]);
 
                             var options = {
 
                                 legend: { position: "none" },
-                                bars: 'horizontal' // Required for Material Bar Charts.
+                                chartArea: { width: '100%' },
+                                bars: 'horizontal', // Required for Material Bar Charts.
+
                             };
 
-                            var chart = new google.charts.Bar(document.getElementById('q5'));
-
-                            chart.draw(data, google.charts.Bar.convertOptions(options));
+                            var chart = new google.visualization.BarChart(document.getElementById("q5"));
+                            chart.draw(view, options);
                         }
                     </script>
 
@@ -256,7 +277,7 @@
             <div class=box>
 
                 <div class="questions">
-                    <p class="fs-3">What sort of inconveniences do you face during online classes? Select as many apply
+                    <p class="fs-4">What sort of inconveniences do you face during online classes? Select as many apply
                     </p>
                 </div>
 
@@ -267,25 +288,36 @@
 
                         function drawChart() {
                             var data = google.visualization.arrayToDataTable([
-                                ['', ''],
-                                ['High cost of bandwidth', 65],
-                                ['Lack of network infrastructure', 148],
-                                ['Physical / mental health issues', 182],
-                                ['Load-shedding', 130],
-                                ['Weather issues', 76],
-                                ['Other', 9],
-                                ['None', 2]
+                                ['', '', { role: 'annotationText' }],
+                                [' ', 65, 'High cost of bandwidth'],
+                                [' ', 148, 'Lack of network infrastructure'],
+                                [' ', 182,'Physical / mental health issues'],
+                                [' ', 130,'Load-shedding'],
+                                [' ', 76,'Weather issues'],
+                                [' ', 9, 'Other'],
+                                [' ', 2, 'None']
                             ]);
+
+                            var view = new google.visualization.DataView(data);
+                            view.setColumns([0, 1,
+                                {
+                                    calc: "stringify",
+                                    sourceColumn: 2,
+                                    type: "string",
+                                    role: "annotation"
+                                },
+                                2]);
 
                             var options = {
 
                                 legend: { position: "none" },
-                                bars: 'horizontal' // Required for Material Bar Charts.
+                                chartArea: { width: '100%' },
+                                bars: 'horizontal', // Required for Material Bar Charts.
+
                             };
 
-                            var chart = new google.charts.Bar(document.getElementById('q6'));
-
-                            chart.draw(data, google.charts.Bar.convertOptions(options));
+                            var chart = new google.visualization.BarChart(document.getElementById("q6"));
+                            chart.draw(view, options);
                         }
                     </script>
 
@@ -300,7 +332,7 @@
             <div class=box>
 
                 <div class="questions">
-                    <p class="fs-3">How often do you lose your network connection / electricity during online classes?
+                    <p class="fs-4">How often do you lose your network connection / electricity during online classes?
                     </p>
                 </div>
 
@@ -322,6 +354,8 @@
 
                             var options = {
                                 pieStartAngle: 90,
+                                legend: { position: 'top', maxLines: '5' },
+                                chartArea: { width: '100%' },
 
                             };
 
@@ -342,7 +376,7 @@
             <div class=box>
 
                 <div class="questions">
-                    <p class="fs-3">How much do you usually spend per month on your internet connection?</p>
+                    <p class="fs-4">How much do you usually spend per month on your internet connection?</p>
                 </div>
 
                 <div class="charts">
@@ -363,6 +397,8 @@
 
                             var options = {
                                 pieStartAngle: 90,
+                                legend: { position: 'top', maxLines: '5' },
+                                chartArea: { width: '100%' },
 
                             };
 
@@ -383,7 +419,7 @@
             <div class=box>
 
                 <div class="questions">
-                    <p class="fs-3">What is your main mode of internet connection?</p>
+                    <p class="fs-4">What is your main mode of internet connection?</p>
                 </div>
 
                 <div class="charts">
@@ -404,6 +440,8 @@
 
                             var options = {
                                 pieStartAngle: 90,
+                                legend: { position: 'top', maxLines: '5' },
+                                chartArea: { width: '100%' },
 
                             };
 
@@ -423,7 +461,7 @@
             <div class=box>
 
                 <div class="questions">
-                    <p class="fs-3">Does your institution have a fixed platform (Learning Management System) for online
+                    <p class="fs-4">Does your institution have a fixed platform (Learning Management System) for online
                         classes and
                         submissions?</p>
                 </div>
@@ -446,6 +484,8 @@
 
                             var options = {
                                 pieStartAngle: 90,
+                                legend: { position: 'top', maxLines: '5' },
+                                chartArea: { width: '100%' },
 
                             };
 
@@ -466,7 +506,7 @@
             <div class=box>
 
                 <div class="questions">
-                    <p class="fs-3">Have you ever missed an exam or a deadline due to issues with connection,
+                    <p class="fs-4">Have you ever missed an exam or a deadline due to issues with connection,
                         infrastructure, or
                         logistics?</p>
                 </div>
@@ -490,6 +530,8 @@
 
                             var options = {
                                 pieStartAngle: 90,
+                                legend: { position: 'top', maxLines: '5' },
+                                chartArea: { width: '100%' },
 
                             };
 
@@ -510,7 +552,7 @@
             <div class=box>
 
                 <div class="questions">
-                    <p class="fs-3">Do you find current evaluation processes (exams, assignments) fair and accurate?</p>
+                    <p class="fs-4">Do you find current evaluation processes (exams, assignments) fair and accurate?</p>
                 </div>
 
                 <div class="charts">
@@ -531,6 +573,8 @@
 
                             var options = {
                                 pieStartAngle: 90,
+                                legend: { position: 'top', maxLines: '5' },
+                                chartArea: { width: '100%' },
 
                             };
 
@@ -553,7 +597,7 @@
             <div class=box>
 
                 <div class="questions">
-                    <p class="fs-3">Do you feel that your online education is an economic burden on your family?</p>
+                    <p class="fs-4">Do you feel that your online education is an economic burden on your family?</p>
                 </div>
 
                 <div class="charts">
@@ -574,6 +618,8 @@
 
                             var options = {
                                 pieStartAngle: 90,
+                                legend: { position: 'top', maxLines: '5' },
+                                chartArea: { width: '100%' },
 
                             };
 
@@ -595,7 +641,7 @@
             <div class=box>
 
                 <div class="questions">
-                    <p class="fs-3">Which of the following do you recommend for improving the quality of online
+                    <p class="fs-4">Which of the following do you recommend for improving the quality of online
                         education during this
                         pandemic? Select one or more.</p>
                 </div>
@@ -607,26 +653,36 @@
 
                         function drawChart() {
                             var data = google.visualization.arrayToDataTable([
-                                ['', ''],
-                                ['Government funding for proper bandwidth & devices', 172],
-                                ['Recorded classes as an addition to live classes', 171],
-                                ['Providing training to teachers', 134],
-                                ['Withholding exams and continuing classes only', 95],
-                                ['Broadcasting classes through television', 30],
-                                ['Totally withholding online classes', 64],
-                                ['Other', '9']
+                                ['', '', {role : 'annotationText'}],
+                                [' ', 172, 'Government funding for proper bandwidth & devices'],
+                                [' ', 171, 'Recorded classes as an addition to live classes'],
+                                [' ', 134, 'Providing training to teachers'],
+                                [' ', 95, 'Withholding exams and continuing classes only'],
+                                [' ', 30, 'Broadcasting classes through television'],
+                                [' ', 64, 'Totally withholding online classes'],
+                                [' ', '9', 'Other']
                             ]);
+
+                            var view = new google.visualization.DataView(data);
+                            view.setColumns([0, 1,
+                                {
+                                    calc: "stringify",
+                                    sourceColumn: 2,
+                                    type: "string",
+                                    role: "annotation"
+                                },
+                                2]);
 
                             var options = {
 
-
                                 legend: { position: "none" },
-                                bars: 'horizontal' // Required for Material Bar Charts.
+                                chartArea: { width: '100%' },
+                                bars: 'horizontal', // Required for Material Bar Charts.
+
                             };
 
-                            var chart = new google.charts.Bar(document.getElementById('q99'));
-
-                            chart.draw(data, google.charts.Bar.convertOptions(options));
+                            var chart = new google.visualization.BarChart(document.getElementById("q99"));
+                            chart.draw(view, options);
                         }
                     </script>
 
@@ -642,7 +698,7 @@
             <div class=box>
 
                 <div class="questions">
-                    <p class="fs-3">Which of the following steps do you think is the most effective step?</p>
+                    <p class="fs-4">Which of the following steps do you think is the most effective step?</p>
                 </div>
 
                 <div class="charts">
@@ -665,6 +721,8 @@
 
                             var options = {
                                 pieStartAngle: 90,
+                                legend: { position: 'top', maxLines: '5' },
+                                chartArea: { width: '100%' },
 
                             };
 
