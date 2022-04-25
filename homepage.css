@@ -1,0 +1,70 @@
+
+.main-background{
+    height: 100vh; 
+}
+
+.main-background img{
+    width: 100%;
+}
+
+.main-background .container{
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.main-background figure{
+    padding: 50px;
+    
+}
+
+
+.lekha{
+    
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+}
+
+a{
+    margin-top: 20px;
+    margin-left:10px;
+    margin-right:10px;
+}
+
+h1{
+    font-size: 2em;
+    font-weight: bold;
+    
+}
+
+h2{
+    font-size: 1em;
+}
+
+
+@media (min-width: 770px) {
+    .main-background img{
+        width: 90%;
+    }
+}
+
+
+@media (min-width: 1200px) {
+    h1{
+        font-size: 2.5em;
+        
+        
+    }
+}
+
+@media (min-width: 1400px) {
+    h1{
+        font-size: 3em;
+        
+        
+    }
+}
+
+

@@ -1,0 +1,128 @@
+main p,
+li {
+    text-align: justify;
+}
+
+main li {
+    margin-bottom: 1em
+}
+
+
+.container {
+    padding-left: 30px;
+    padding-right: 30px
+}
+
+@media (min-width: 1080px) {
+    .container {
+        padding-left: 150px;
+        padding-right: 150px
+    }
+}
+
+
+
+header {
+    padding-top: 50px;
+    padding-bottom: 30px;
+}
+
+.scrolled-down {
+    transform: translateY(-100%);
+    transition: all 0.3s ease-in-out;
+}
+
+.scrolled-up {
+    transform: translateY(0);
+    transition: all 0.3s ease-in-out;
+}
+
+.navbar-brand {
+    font-family: monospace;
+    font-weight: bold;
+}
+
+.navbar a {
+    margin-left: 10px;
+    padding: 7px 13px;
+    border-radius: 13px;
+}
+
+.navbar a:hover {
+    background-color: grey;
+    padding-left: 20px;
+}
+
+.pic-card {
+    border-radius: 10%;
+}
+
+
+.member img {
+    padding: 1em;
+    border: 5px solid #252525;
+    border-radius: 50%;
+    padding: 5px;
+    margin: auto;
+}
+
+.member {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    margin-bottom: 50px;
+    border-radius: 10%;
+    
+}
+
+.box {
+    margin: 20px;
+    padding: 10px;
+    padding-top: 20px;
+    border: 1px solid #CACACA;
+    border-radius: 10px;
+}
+
+.questions {
+    padding-left: 20px;
+}
+
+
+.chart_wrap {
+    z-index: -1;
+    margin: auto;
+
+    padding: 5px;
+    padding-top: 20px;
+
+
+}
+
+.oneChart {
+
+    height: 350px;
+
+}
+
+
+.card{
+    margin-left: auto;
+    margin-right: auto;
+    height: 100%;
+    
+    
+}
+
+.myreferences .col{
+    padding-top: 50px;
+}
+
+.report-body h3,h4{
+    font-style: italic;
+    margin-bottom: 10px;
+    
+}
+
+
+
+
+
